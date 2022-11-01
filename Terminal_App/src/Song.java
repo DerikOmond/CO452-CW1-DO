@@ -10,5 +10,20 @@ public class Song
         this.artist = artist;
         this.playCount = playCount;
     }
+
+    public String getTitle()
+    {
+        return this.title;
+    }
+
+    public String getArtist()
+    {
+        return this.artist;
+    }
+
+    public int getPlayCount()
+    {
+        return this.playCount;
+    }
     
 }
