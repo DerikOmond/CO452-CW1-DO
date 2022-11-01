@@ -5,12 +5,13 @@ public class App {
     public static void main(String[] args) throws Exception
     {
         Scanner sc = new Scanner(System.in);
+        String _continue;
         do
         {
 
             System.out.print("Continue? ");
-            String _continue = sc.nextLine();
+            _continue = sc.nextLine();
         }
-        while();
+        while(_continue.equals("yes"));
     }
 }
