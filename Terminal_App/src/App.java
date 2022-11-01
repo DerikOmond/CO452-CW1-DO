@@ -4,6 +4,8 @@ public class App {
         do
         {
 
+            System.out.print("Continue? ");
+            String continue = sc.nextLine();
         }
         while();
     }
