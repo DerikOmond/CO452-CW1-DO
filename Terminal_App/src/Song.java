@@ -26,4 +26,10 @@ public class Song
         return this.playCount;
     }
     
+    public void print()
+    {
+        System.out.println("Title: " + this.title);
+        System.out.println("Artist: " + this.artist);
+        System.out.println("Play Count: " + this.playCount);
+    }
 }
