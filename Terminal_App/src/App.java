@@ -1,13 +1,14 @@
+//Imports
 import java.util.ArrayList;
 import java.util.Scanner;
-
-import javax.xml.stream.events.EndDocument;
 
 public class App {
     public static void main(String[] args) throws Exception
     {
+        //Arraylist of songs
         ArrayList<Song> songList = new ArrayList<>();
 
+        //Each song and their attributes
         Song s1 = new Song("Where Ya At", "Future", 312938482);
         songList.add(s1);
 
@@ -47,17 +48,20 @@ public class App {
         Song s13 = new Song("T-Shirt", "Migos", 333658408);
         songList.add(s13);
 
+        //Printing all first songs
         for (Song currentSong: songList)
         {
             currentSong.print();
         }
 
+        // Arraylist of options available
         ArrayList<String> options0 = new ArrayList<>();
         options0.add("P");
         options0.add("A");
         options0.add("R");
         options0.add("N");
 
+        //User input for making first decision
         String userInput0;
 
         Scanner sc = new Scanner(System.in);
@@ -65,8 +69,10 @@ public class App {
         String addSongAgain;
         String removeSongAgain;
 
+        // do while loop to prevent having to restart program
         do
         {
+            // Prompting user made decision through key input
             do
             {
                 System.out.println("Press 'P' to print all songs.");
@@ -79,6 +85,7 @@ public class App {
             }
             while (!(options0.contains(userInput0)));
 
+            // Option to print out all songs
             if (userInput0.equals("P"))
             {
                 for (Song currentSong: songList)
@@ -87,6 +94,7 @@ public class App {
                 }
             }
 
+            //Option to add songs
             else if (userInput0.equals("A"))
             {
                 do
@@ -163,11 +171,13 @@ public class App {
                 while(removeSongAgain.equals("yes"));
             }
 
+            //Option to exit program entirely
             else if (userInput0.equals("X"))
             {
                 
             }
             
+            // Continue/Restart program prompt
             System.out.print("Continue? ");
             _continue = sc.nextLine();
         }
