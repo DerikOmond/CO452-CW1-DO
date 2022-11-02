@@ -60,6 +60,7 @@ public class App {
 
         Scanner sc = new Scanner(System.in);
         String _continue;
+        String addSongAgain;
 
         do
         {
@@ -81,6 +82,39 @@ public class App {
                 {
                     currentSong.print();
                 }
+            }
+
+            else if (userInput0.equals("A"))
+            {
+                do
+                {
+                    System.out.print("Title: ");
+                    String userTitle = sc.nextLine();
+
+                    System.out.print("Artist: ");
+                    String userArtist = sc.nextLine();
+
+                    System.out.print("Play Count: ");
+                    int userPlayCount = sc.nextInt();
+                    sc.nextLine();
+
+                    Song userAddedSong = new Song(userTitle, userArtist, userPlayCount);
+                    songList.add(userAddedSong);
+
+                    if (songList.contains(userAddedSong))
+                    {
+                        System.out.println("Your song has been added.");
+                    }
+                    else
+                    {
+                        System.out.println("Something went wrong.");
+                        System.out.println("Your song has not been added.");
+                    }
+
+                    System.out.println("Add song again? ");
+                    addSongAgain = sc.nextLine();
+
+                }while (addSongAgain.equals("yes"));
             }
             
             System.out.print("Continue? ");
