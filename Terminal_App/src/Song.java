@@ -4,7 +4,7 @@ public class Song
     private String artist;
     private int playCount;
 
-    public void Song(String title, String artist, int playCount)
+    public Song(String title, String artist, int playCount)
     {
         this.title = title;
         this.artist = artist;
@@ -28,8 +28,10 @@ public class Song
     
     public void print()
     {
+        System.out.println("");
         System.out.println("Title: " + this.title);
         System.out.println("Artist: " + this.artist);
         System.out.println("Play Count: " + this.playCount);
+        System.out.println(" ");
     }
 }

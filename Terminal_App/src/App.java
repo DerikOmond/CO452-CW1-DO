@@ -45,6 +45,11 @@ public class App {
         Song s13 = new Song("T-Shirt", "Migos", 333658408);
         songList.add(s13);
 
+        for (Song currentSong: songList)
+        {
+            currentSong.print();
+        }
+
         Scanner sc = new Scanner(System.in);
         String _continue;
         do
