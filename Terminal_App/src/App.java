@@ -50,11 +50,39 @@ public class App {
             currentSong.print();
         }
 
+        ArrayList<String> options0 = new ArrayList<>();
+        options0.add("P");
+        options0.add("A");
+        options0.add("R");
+        options0.add("N");
+
+        String userInput0;
+
         Scanner sc = new Scanner(System.in);
         String _continue;
+
         do
         {
+            do
+            {
+                System.out.println("Press 'P' to print all songs.");
+                System.out.println("Press 'A' to add a song to the list.");
+                System.out.println("Press 'R' to remove a song.");
+                System.out.println("Press 'N' to view how many times you've played a song.");
+                System.out.println("Press 'X' to exit.");
 
+                userInput0 = sc.nextLine();
+            }
+            while (!(options0.contains(userInput0)));
+
+            if (userInput0.equals("P"))
+            {
+                for (Song currentSong: songList)
+                {
+                    currentSong.print();
+                }
+            }
+            
             System.out.print("Continue? ");
             _continue = sc.nextLine();
         }
