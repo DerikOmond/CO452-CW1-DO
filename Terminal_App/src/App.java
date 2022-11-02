@@ -61,6 +61,23 @@ public class App {
         options0.add("R");
         options0.add("N");
 
+        // Arraylist of 'yes' options possible
+        ArrayList<String> yesOptions = new ArrayList<>();
+        yesOptions.add("yes");
+        yesOptions.add("yeah");
+        yesOptions.add("ye");
+        yesOptions.add("y");
+        yesOptions.add("yea");
+        yesOptions.add("ya");
+
+        //Arraylist of 'no' options possible
+        ArrayList<String> noOptions = new ArrayList<>();
+        noOptions.add("no");
+        noOptions.add("n");
+        noOptions.add("nah");
+        noOptions.add("nope");
+        noOptions.add("nop");
+
         //User input for making first decision
         String userInput0;
 
