@@ -1,6 +1,8 @@
 import java.util.ArrayList;
 import java.util.Scanner;
 
+import javax.xml.stream.events.EndDocument;
+
 public class App {
     public static void main(String[] args) throws Exception
     {
@@ -159,6 +161,11 @@ public class App {
                     removeSongAgain = sc.nextLine();
                 }
                 while(removeSongAgain.equals("yes"));
+            }
+
+            else if (userInput0.equals("X"))
+            {
+                
             }
             
             System.out.print("Continue? ");
