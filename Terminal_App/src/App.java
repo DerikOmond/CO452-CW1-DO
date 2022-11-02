@@ -61,6 +61,7 @@ public class App {
         Scanner sc = new Scanner(System.in);
         String _continue;
         String addSongAgain;
+        String removeSongAgain;
 
         do
         {
@@ -115,6 +116,49 @@ public class App {
                     addSongAgain = sc.nextLine();
 
                 }while (addSongAgain.equals("yes"));
+            }
+
+            else if (userInput0.equals("R"))
+            {
+                do
+                {
+                    System.out.println("Type as shown in printed values");
+
+                    System.out.print("Song title: ");
+                    String removeTitle = sc.nextLine().toLowerCase();
+
+                    System.out.print("Artist name: ");
+                    String removeArtist = sc.nextLine().toLowerCase();
+
+                    for (Song currentSong1: songList)
+                    {
+                        if ((removeTitle.equals(currentSong1.getTitle().toLowerCase())) && (removeArtist.equals(currentSong1.getArtist().toLowerCase())))
+                        {
+                            System.out.println("You want to remove " + currentSong1.getTitle() + " by " + currentSong1.getArtist() + "?");
+                            String removeSong = sc.nextLine();
+
+                            if (removeSong.equals("yes"))
+                            {
+                                sc.nextLine();
+                                songList.remove(currentSong1);
+                                System.out.println(currentSong1.getTitle() + " has been removed from list.");
+                            }
+                            else
+                            {
+                                System.out.println("Okay");
+                            }
+                        }
+                        else
+                        {
+                            System.out.println("Song couldn't be found.");
+                            break;
+                        }
+                    }
+
+                    System.out.println("Would you like to remove another song?");
+                    removeSongAgain = sc.nextLine();
+                }
+                while(removeSongAgain.equals("yes"));
             }
             
             System.out.print("Continue? ");
