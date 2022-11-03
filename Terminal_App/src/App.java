@@ -1,6 +1,5 @@
 //Imports
 import java.util.ArrayList;
-import java.util.Scanner;
 
 public class App {
     public static void main(String[] args) throws Exception
@@ -78,10 +77,8 @@ public class App {
         noOptions.add("nope");
         noOptions.add("nop");
 
-        //User input for making first decision
+        //User input for making decision
         String userInput0;
-
-        Scanner sc = new Scanner(System.in);
         String _continue;
         String addSongAgain;
         String removeSongAgain;
@@ -92,13 +89,10 @@ public class App {
             // Prompting user made decision through key input
             do
             {
-                System.out.println("Press 'P' to print all songs.");
-                System.out.println("Press 'A' to add a song to the list.");
-                System.out.println("Press 'R' to remove a song.");
-                System.out.println("Press 'N' to view how many times you've played a song.");
-                System.out.println("Press 'X' to exit.");
-
-                userInput0 = sc.nextLine();
+                userInput0 = InputReader.getString("Press 'P' to print all songs" +
+                "\n Press 'A' to add a song to the list" +
+                "\n Press 'R' to remove a song" +
+                "\n Press 'X' to exit");
             }
             while (!(options0.contains(userInput0)));
 
@@ -116,15 +110,9 @@ public class App {
             {
                 do
                 {
-                    System.out.print("Title: ");
-                    String userTitle = sc.nextLine();
-
-                    System.out.print("Artist: ");
-                    String userArtist = sc.nextLine();
-
-                    System.out.print("Play Count: ");
-                    int userPlayCount = sc.nextInt();
-                    sc.nextLine();
+                    String userTitle = InputReader.getString("Title: ");
+                    String userArtist = InputReader.getString("Artist: ");
+                    int userPlayCount = InputReader.getInt("Play Count(According to Youtube.com): ");
 
                     Song userAddedSong = new Song(userTitle, userArtist, userPlayCount);
                     songList.add(userAddedSong);
@@ -139,8 +127,7 @@ public class App {
                         System.out.println("Your song has not been added.");
                     }
 
-                    System.out.println("Add song again? ");
-                    addSongAgain = sc.nextLine();
+                    addSongAgain = InputReader.getString("Add song again?");
 
                 }while (addSongAgain.equals("yes"));
             }
@@ -151,30 +138,24 @@ public class App {
                 {
                     System.out.println("Type as shown in printed values");
 
-                    System.out.print("Song title: ");
-                    String removeTitle = sc.nextLine().toLowerCase();
-
-                    System.out.print("Artist name: ");
-                    String removeArtist = sc.nextLine().toLowerCase();
+                    String removeTitle = InputReader.getString("Title: ");
+                    String removeArtist = InputReader.getString("Artist: ");
 
                     for (Song currentSong1: songList)
                     {
                         if ((removeTitle.equals(currentSong1.getTitle().toLowerCase())) && (removeArtist.equals(currentSong1.getArtist().toLowerCase())))
                         {
-                            System.out.println("You want to remove " + currentSong1.getTitle() + " by " + currentSong1.getArtist() + "?");
-                            String removeSong = sc.nextLine();
+                            String removeSong = InputReader.getString("You want to remove " + currentSong1.getTitle() + " by " + currentSong1.getArtist() + "?");
 
                             if (removeSong.equals("yes"))
                             {
-                                sc.nextLine();
                                 songList.remove(currentSong1);
                                 System.out.println(currentSong1.getTitle() + " has been removed from list.");
                             }
                         }
                     }
-
-                    System.out.println("Would you like to remove another song?");
-                    removeSongAgain = sc.nextLine();
+                    
+                    removeSongAgain = InputReader.getString("Would you like to remove another song? ");
                 }
                 while(removeSongAgain.equals("yes"));
             }
@@ -182,12 +163,11 @@ public class App {
             //Option to exit program entirely
             else if (userInput0.equals("X"))
             {
-                
+                System.exit(0);
             }
             
             // Continue/Restart program prompt
-            System.out.print("Continue? ");
-            _continue = sc.nextLine();
+            _continue = InputReader.getString("Continue? ");
         }
         while(_continue.equals("yes"));
     }
