@@ -1,9 +1,11 @@
 public class Song
 {
+    //Attributes
     private String title;
     private String artist;
     private int playCount;
 
+    //Song object onstructor
     public Song(String title, String artist, int playCount)
     {
         this.title = title;
@@ -11,6 +13,7 @@ public class Song
         this.playCount = playCount;
     }
 
+    //Getters
     public String getTitle()
     {
         return this.title;
@@ -26,6 +29,7 @@ public class Song
         return this.playCount;
     }
     
+    //Print Method
     public void print()
     {
         System.out.println("");
