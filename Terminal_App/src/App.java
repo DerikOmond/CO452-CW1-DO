@@ -85,6 +85,7 @@ public class App {
         String _continue;
         String addSongAgain;
         String removeSongAgain;
+        String printCountAgain;
 
         // do while loop to prevent having to restart program
         do
@@ -92,10 +93,11 @@ public class App {
             // Prompting user made decision through key input
             do
             {
+                System.out.println(" ");
                 System.out.println("Press 'P' to print all songs.");
+                System.out.println("Press 'G' to print songs with a play count greater than a chosen number.");
                 System.out.println("Press 'A' to add a song to the list.");
                 System.out.println("Press 'R' to remove a song.");
-                System.out.println("Press 'N' to view how many times you've played a song.");
                 System.out.println("Press 'X' to exit.");
 
                 userInput0 = sc.nextLine();
@@ -182,7 +184,31 @@ public class App {
             //Option to exit program entirely
             else if (userInput0.equals("X"))
             {
-                
+                System.exit(0);
+            }
+
+            //Play count
+            else if (userInput0.equals("G"))
+            {
+                sc.nextLine();
+
+                do
+                {
+                    System.out.println("Least number of views: ");
+                    int leastViews = sc.nextInt();
+
+                    for (Song currentSong1: songList)
+                    {
+                        if (currentSong1.getPlayCount() <= leastViews)
+                        {
+                            currentSong1.print();
+                        }
+                    }
+
+                    System.out.println("Again? ");
+                    printCountAgain = sc.nextLine();
+                } 
+                while (printCountAgain.equals("yes"));
             }
             
             // Continue/Restart program prompt
