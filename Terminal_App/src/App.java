@@ -170,15 +170,6 @@ public class App {
                                 songList.remove(currentSong1);
                                 System.out.println(currentSong1.getTitle() + " has been removed from list.");
                             }
-                            else
-                            {
-                                System.out.println("Okay");
-                            }
-                        }
-                        else
-                        {
-                            System.out.println("Song couldn't be found.");
-                            break;
                         }
                     }
 
