@@ -32,10 +32,8 @@ public class Song
     //Print Method
     public void print()
     {
-        System.out.println("");
-        System.out.println("Title: " + this.title);
-        System.out.println("Artist: " + this.artist);
-        System.out.println("Play Count: " + this.playCount);
-        System.out.println(" ");
+        System.out.println("Title: " + this.title + 
+        "\tArtist: " + this.artist +
+        "\tPlay Count: " + this.playCount);
     }
 }
