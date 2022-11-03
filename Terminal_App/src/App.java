@@ -129,7 +129,7 @@ public class App {
 
                     addSongAgain = InputReader.getString("Add song again?");
 
-                }while (addSongAgain.equals("yes"));
+                }while (yesOptions.contains(addSongAgain));
             }
 
             else if (userInput0.equals("R"))
@@ -147,17 +147,19 @@ public class App {
                         {
                             String removeSong = InputReader.getString("You want to remove " + currentSong1.getTitle() + " by " + currentSong1.getArtist() + "?");
 
-                            if (removeSong.equals("yes"))
+                            if (yesOptions.contains(removeSong))
                             {
                                 songList.remove(currentSong1);
                                 System.out.println(currentSong1.getTitle() + " has been removed from list.");
                             }
+                            else if (noOptions.contains(removeSong));
+
                         }
                     }
                     
                     removeSongAgain = InputReader.getString("Would you like to remove another song? ");
                 }
-                while(removeSongAgain.equals("yes"));
+                while(yesOptions.contains(removeSongAgain));
             }
 
             //Option to exit program entirely
