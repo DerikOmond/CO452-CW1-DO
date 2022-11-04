@@ -173,7 +173,7 @@ public class App
                             if (yesOptions.contains(removeSong))
                             {
                                 songList.remove(currentSong1);
-                                System.out.println(currentSong1.getTitle() + " has been removed from list.");
+                                System.out.println("\n" + currentSong1.getTitle() + " has been removed from list.");
                             }
 
                             break;
