@@ -61,15 +61,11 @@ public class App
         System.out.printf("----------------------------------------------------------------------------------------------------------------------------------%n");
 
         // Arraylist of options available to decide option pathway
-        ArrayList<String> options0 = new ArrayList<>();
-        options0.add("P");
-        options0.add("A");
-        options0.add("R");
-        options0.add("N");
-        options0.add("p");
-        options0.add("a");
-        options0.add("r");
-        options0.add("n");
+        ArrayList<Integer> options0 = new ArrayList<>();
+        options0.add(1);
+        options0.add(2);
+        options0.add(3);
+        options0.add(4);
 
         // Arraylist of 'yes' options possible
         ArrayList<String> yesOptions = new ArrayList<>();
@@ -89,7 +85,7 @@ public class App
         noOptions.add("nop");
 
         //User input for making decision
-        String userInput0;
+        int userInput0;
         String _continue;
         String addSongAgain;
         String removeSongAgain;
@@ -100,16 +96,17 @@ public class App
             // Prompting user made decision through key input
             do
             {
-                userInput0 = InputReader.getString("\nPress 'P' to print all songs" +
-                "\nPress 'A' to add a song to the list" +
-                "\nPress 'R' to remove a song" +
-                "\nPress 'X' to exit" +
-                "\n--> ").toLowerCase();
+                userInput0 = InputReader.getInt("\n1. Print table of songs" +
+                "\n2. Add songs" +
+                "\n3. Remove song." +
+                "\n4. Display songs according to minimum view count." +
+                "\n5. Exit." +
+                "\n--> ");
             }
             while (!(options0.contains(userInput0)));
 
             // Option to print out all songs
-            if (userInput0.equals("P") || userInput0.equals("p"))
+            if (userInput0 == 1)
             {
                 System.out.println("");
 
@@ -126,7 +123,7 @@ public class App
             }
 
             //Option to add songs
-            else if (userInput0.equals("A") || userInput0.equals("a"))
+            else if (userInput0 == 2)
             {
                 do
                 {
@@ -154,7 +151,7 @@ public class App
             }
 
             //Option to remove song
-            else if (userInput0.equals("R") || userInput0.equals("r"))
+            else if (userInput0 == 3)
             {
                 do
                 {
@@ -187,7 +184,7 @@ public class App
             }
 
             //Option to exit program entirely
-            else if (userInput0.equals("X") || userInput0.equals("x"))
+            else if (userInput0  == 4)
             {
                 System.out.println("Closing program...");
                 System.exit(0);
