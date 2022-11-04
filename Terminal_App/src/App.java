@@ -183,8 +183,30 @@ public class App
                 while(yesOptions.contains(removeSongAgain));
             }
 
-            //Option to exit program entirely
+            //Option to to list songs above certain play count
             else if (userInput0  == 4)
+            {
+                int minimumCount = InputReader.getInt("Minimum view count: ");
+
+                System.out.printf("----------------------------------------------------------------------------------------------------------------------------------%n");
+                System.out.printf("|                                                                Songs                                                           |%n");
+                System.out.printf("----------------------------------------------------------------------------------------------------------------------------------%n");
+                System.out.printf("| %-50s | %-50s | %-20s |%n", "Title", "Artist", "Play Count");
+                System.out.printf("----------------------------------------------------------------------------------------------------------------------------------%n");
+
+                for (Song songMin: songList)
+                {
+                    if (minimumCount <= songMin.getPlayCount())
+                    {
+                        songMin.printTable();
+                    }
+                }
+
+                System.out.printf("----------------------------------------------------------------------------------------------------------------------------------%n");
+            }
+            
+            // Option to exit program
+            else if (userInput0  == 5)
             {
                 System.out.println("Closing program...");
                 System.exit(0);
