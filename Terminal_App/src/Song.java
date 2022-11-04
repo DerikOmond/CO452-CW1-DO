@@ -29,11 +29,9 @@ public class Song
         return this.playCount;
     }
     
-    //Print Method
-    public void print()
+    //Print Table Method
+    public void printTable()
     {
-        System.out.println("Title: " + this.title + 
-        "\tArtist: " + this.artist +
-        "\tPlay Count: " + this.playCount);
-    }
+        System.out.printf("| %-50s | %-50s | %20s |%n", this.title, this.artist, this.playCount);
+    }    
 }

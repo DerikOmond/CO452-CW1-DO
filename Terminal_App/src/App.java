@@ -1,7 +1,8 @@
 //Imports
 import java.util.ArrayList;
 
-public class App {
+public class App 
+{
     public static void main(String[] args) throws Exception
     {
         //Arraylist of songs
@@ -48,10 +49,16 @@ public class App {
         songList.add(s13);
 
         //Printing all first songs
+        System.out.printf("----------------------------------------------------------------------------------------------------------------------------------%n");
+        System.out.printf("|                                                                Songs                                                           |%n");
+        System.out.printf("----------------------------------------------------------------------------------------------------------------------------------%n");
+        System.out.printf("| %-50s | %-50s | %-20s |%n", "Title", "Artist", "Play Count");
+        System.out.printf("----------------------------------------------------------------------------------------------------------------------------------%n");
         for (Song currentSong: songList)
         {
-            currentSong.print();
+            currentSong.printTable();
         }
+        System.out.printf("----------------------------------------------------------------------------------------------------------------------------------%n");
 
         // Arraylist of options available to decide option pathway
         ArrayList<String> options0 = new ArrayList<>();
@@ -105,10 +112,17 @@ public class App {
             if (userInput0.equals("P") || userInput0.equals("p"))
             {
                 System.out.println("");
+
+                System.out.printf("----------------------------------------------------------------------------------------------------------------------------------%n");
+                System.out.printf("|                                                                Songs                                                           |%n");
+                System.out.printf("----------------------------------------------------------------------------------------------------------------------------------%n");
+                System.out.printf("| %-50s | %-50s | %-20s |%n", "Title", "Artist", "Play Count");
+                System.out.printf("----------------------------------------------------------------------------------------------------------------------------------%n");
                 for (Song currentSong: songList)
                 {
-                    currentSong.print();
+                    currentSong.printTable();
                 }
+                System.out.printf("----------------------------------------------------------------------------------------------------------------------------------%n");
             }
 
             //Option to add songs
@@ -167,7 +181,7 @@ public class App {
                         }
                     }
                     
-                    removeSongAgain = InputReader.getString("\n" + "Would you like to remove another song?" + "\n-->");
+                    removeSongAgain = InputReader.getString("\n" + "Would you like to remove another song?" + "\n--> ");
                 }
                 while(yesOptions.contains(removeSongAgain));
             }
