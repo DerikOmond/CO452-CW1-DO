@@ -53,12 +53,16 @@ public class App {
             currentSong.print();
         }
 
-        // Arraylist of options available
+        // Arraylist of options available to decide option pathway
         ArrayList<String> options0 = new ArrayList<>();
         options0.add("P");
         options0.add("A");
         options0.add("R");
         options0.add("N");
+        options0.add("p");
+        options0.add("a");
+        options0.add("r");
+        options0.add("n");
 
         // Arraylist of 'yes' options possible
         ArrayList<String> yesOptions = new ArrayList<>();
@@ -89,16 +93,18 @@ public class App {
             // Prompting user made decision through key input
             do
             {
-                userInput0 = InputReader.getString("Press 'P' to print all songs" +
-                "\n Press 'A' to add a song to the list" +
-                "\n Press 'R' to remove a song" +
-                "\n Press 'X' to exit");
+                userInput0 = InputReader.getString("\nPress 'P' to print all songs" +
+                "\nPress 'A' to add a song to the list" +
+                "\nPress 'R' to remove a song" +
+                "\nPress 'X' to exit" +
+                "\n--> ").toLowerCase();
             }
             while (!(options0.contains(userInput0)));
 
             // Option to print out all songs
-            if (userInput0.equals("P"))
+            if (userInput0.equals("P") || userInput0.equals("p"))
             {
+                System.out.println("");
                 for (Song currentSong: songList)
                 {
                     currentSong.print();
@@ -106,71 +112,77 @@ public class App {
             }
 
             //Option to add songs
-            else if (userInput0.equals("A"))
+            else if (userInput0.equals("A") || userInput0.equals("a"))
             {
                 do
                 {
+                    System.out.println("");
                     String userTitle = InputReader.getString("Title: ");
                     String userArtist = InputReader.getString("Artist: ");
-                    int userPlayCount = InputReader.getInt("Play Count(According to Youtube.com): ");
+                    int userPlayCount = InputReader.getInt("Play Count(According to Youtube.com or recorded by another source): ");
 
                     Song userAddedSong = new Song(userTitle, userArtist, userPlayCount);
                     songList.add(userAddedSong);
 
                     if (songList.contains(userAddedSong))
                     {
-                        System.out.println("Your song has been added.");
+                        System.out.println("\n" + "Your song has been added." + "\n");
                     }
                     else
                     {
-                        System.out.println("Something went wrong.");
-                        System.out.println("Your song has not been added.");
+                        System.out.println("\nSomething went wrong.");
+                        System.out.println("Your song has not been added." + "\n");
                     }
 
-                    addSongAgain = InputReader.getString("Add song again?");
+                    addSongAgain = InputReader.getString("Add song again?" + "\n--> ");
 
                 }while (yesOptions.contains(addSongAgain));
             }
 
-            else if (userInput0.equals("R"))
+            //Option to remove song
+            else if (userInput0.equals("R") || userInput0.equals("r"))
             {
                 do
                 {
-                    System.out.println("Type as shown in printed values");
+                    System.out.println("\n" + "TYPE AS SHOWN IN SONG LIST!!" + "\n");
+                    System.out.println("IF SONG DOES NOT EXIST IN THE LIST, IT WILL NOT BE REMOVED!!" + "\n");
 
-                    String removeTitle = InputReader.getString("Title: ");
-                    String removeArtist = InputReader.getString("Artist: ");
+                    String removeTitle = InputReader.getString("Title: ").toLowerCase();
+                    String removeArtist = InputReader.getString("Artist: ").toLowerCase();
 
                     for (Song currentSong1: songList)
                     {
                         if ((removeTitle.equals(currentSong1.getTitle().toLowerCase())) && (removeArtist.equals(currentSong1.getArtist().toLowerCase())))
                         {
-                            String removeSong = InputReader.getString("You want to remove " + currentSong1.getTitle() + " by " + currentSong1.getArtist() + "?");
+                            String removeSong = InputReader.getString("You want to remove " + currentSong1.getTitle() + " by " + currentSong1.getArtist() + "?" + "\n--> ");
 
                             if (yesOptions.contains(removeSong))
                             {
                                 songList.remove(currentSong1);
                                 System.out.println(currentSong1.getTitle() + " has been removed from list.");
                             }
-                            else if (noOptions.contains(removeSong));
+
+                            break;
 
                         }
                     }
                     
-                    removeSongAgain = InputReader.getString("Would you like to remove another song? ");
+                    removeSongAgain = InputReader.getString("\n" + "Would you like to remove another song?" + "\n-->");
                 }
                 while(yesOptions.contains(removeSongAgain));
             }
 
             //Option to exit program entirely
-            else if (userInput0.equals("X"))
+            else if (userInput0.equals("X") || userInput0.equals("x"))
             {
+                System.out.println("Closing program...");
                 System.exit(0);
             }
             
             // Continue/Restart program prompt
-            _continue = InputReader.getString("Continue? ");
+            _continue = InputReader.getString("\n" + "Continue? " +
+            "\n--> ");
         }
-        while(_continue.equals("yes"));
+        while(yesOptions.contains(_continue));
     }
 }
