@@ -11,43 +11,43 @@ public class App
         ArrayList<Song> songList = new ArrayList<>();
 
         //Each song and their attributes
-        Song s1 = new Song("Where Ya At", "Future (ft. Drake)", 312938482);
+        Song s1 = new Song("Where Ya At", "Future (ft. Drake)", 312938482, "https://www.youtube.com/watch?v=lw3Or6eqIpI");
         songList.add(s1);
 
-        Song s2 = new Song("Don't Play That", "King Von & 21 Savage", 13672589);
+        Song s2 = new Song("Don't Play That", "King Von & 21 Savage", 13672589, "https://www.youtube.com/watch?v=-_JF_3PB4F0");
         songList.add(s2);
 
-        Song s3 = new Song("Hop Out", "Ghetts", 106905);
+        Song s3 = new Song("Hop Out", "Ghetts", 106905, "https://www.youtube.com/watch?v=o6PNrPy2oOA");
         songList.add(s3);
 
-        Song s4 = new Song("Lazarus", "Dave", 2356707);
+        Song s4 = new Song("Lazarus", "Dave", 2356707, "https://www.youtube.com/watch?v=p8P-sLoRgM0");
         songList.add(s4);
 
-        Song s5 = new Song("Out Tha Mud", "Roddy Ricch", 26687093);
+        Song s5 = new Song("Out Tha Mud", "Roddy Ricch", 26687093, "https://www.youtube.com/watch?v=Y3JWPcDgZng");
         songList.add(s5);
 
-        Song s6 = new Song("family ties", "Baby Keem, Kendrick Lamar", 72728511);
+        Song s6 = new Song("family ties", "Baby Keem, Kendrick Lamar", 72728511, "https://www.youtube.com/watch?v=v6HBZC9pZHQ");
         songList.add(s6);
 
-        Song s7 = new Song("MIDDLE CHILD", "J. Cole", 242380998 );
+        Song s7 = new Song("MIDDLE CHILD", "J. Cole", 242380998, "https://www.youtube.com/watch?v=WILNIXZr2oc");
         songList.add(s7);
 
-        Song s8 = new Song("Fair Trade", "Drake ft. Travis Scott", 67927967);
+        Song s8 = new Song("Fair Trade", "Drake ft. Travis Scott", 67927967, "https://www.youtube.com/watch?v=THVbtGqEO1o");
         songList.add(s8);
 
-        Song s9 = new Song("King of My City", "A Boogie Wit Da Hoodie", 16801663);
+        Song s9 = new Song("King of My City", "A Boogie Wit Da Hoodie", 16801663, "https://www.youtube.com/watch?v=gnBBEv5a-F8");
         songList.add(s9);
 
-        Song s10 = new Song("Bounce Back", "Big Sean", 186934393);
+        Song s10 = new Song("Bounce Back", "Big Sean", 186934393, "https://www.youtube.com/watch?v=phr1pOFK1V8");
         songList.add(s10);
 
-        Song s11 = new Song("N95", "Kendrick Lamar", 50971260);
+        Song s11 = new Song("N95", "Kendrick Lamar", 50971260, "https://www.youtube.com/watch?v=zI383uEwA6Q");
         songList.add(s11);
 
-        Song s12 = new Song("Broccoli", "DRAM ft. Lil Yatchy", 443899368);
+        Song s12 = new Song("Broccoli", "DRAM ft. Lil Yatchy", 443899368, "https://www.youtube.com/watch?v=K44j-sb1SRY");
         songList.add(s12);
 
-        Song s13 = new Song("T-Shirt", "Migos", 333658408);
+        Song s13 = new Song("T-Shirt", "Migos", 333658408, "https://www.youtube.com/watch?v=1VUa99-tJqs");
         songList.add(s13);
 
         //Printing all first songs
@@ -69,6 +69,7 @@ public class App
         options0.add(3);
         options0.add(4);
         options0.add(5);
+        options0.add(6);
 
         // Arraylist of 'yes' options possible
         ArrayList<String> yesOptions = new ArrayList<>();
@@ -92,6 +93,7 @@ public class App
         String _continue;
         String addSongAgain;
         String removeSongAgain;
+        String findSongAgain;
 
         // do while loop to prevent having to restart program
         do
@@ -102,11 +104,12 @@ public class App
                 System.out.printf("\n" + "MAIN MENU" + "\n");
 
 
-                userInput0 = InputReader.getInt("\n1. Print table of songs" +
-                "\n2. Add songs" +
+                userInput0 = InputReader.getInt("\n1. Print table of songs." +
+                "\n2. Add songs." +
                 "\n3. Remove song." +
                 "\n4. Display songs according to minimum view count." +
-                "\n5. Exit." +
+                "\n5. Play song on youtube.com." +
+                "\n6. Exit." +
                 "\n--> ");
             }
             while (!(options0.contains(userInput0)));
@@ -137,8 +140,9 @@ public class App
                     String userTitle = InputReader.getString("Title: ");
                     String userArtist = InputReader.getString("Artist: ");
                     int userPlayCount = InputReader.getInt("Play Count(According to Youtube.com or recorded by another source): ");
+                    String userLink = InputReader.getString("Song URL (from youtube.com): ");
 
-                    Song userAddedSong = new Song(userTitle, userArtist, userPlayCount);
+                    Song userAddedSong = new Song(userTitle, userArtist, userPlayCount, userLink);
                     songList.add(userAddedSong);
 
                     if (songList.contains(userAddedSong))
@@ -212,9 +216,40 @@ public class App
 
                 System.out.printf("----------------------------------------------------------------------------------------------------------------------------------%n");
             }
+
+            //Finding song on youtube.com
+            else if (userInput0 == 5)
+            {
+                do
+                {
+                    System.out.println("\n" + "TYPE AS SHOWN IN SONG LIST!!" + "\n");
+                    System.out.println("IF SONG DOES NOT EXIST IN THE LIST, IT WILL NOT BE FOUND, AND LINK WILL NOT BE OPENED!!" + "\n");
+
+                    String findTitle = InputReader.getString("Title: ").toLowerCase();
+                    String findArtist = InputReader.getString("Artist: ").toLowerCase();
+
+                    for (Song currentSong1: songList)
+                    {
+                        if ((findTitle.equals(currentSong1.getTitle().toLowerCase())) && (findArtist.equals(currentSong1.getArtist().toLowerCase())))
+                        {
+                            String findSong = InputReader.getString("You want to play " + currentSong1.getTitle() + " by " + currentSong1.getArtist() + "?" + "\n--> ");
+
+                            if (yesOptions.contains(findSong))
+                            {
+                                Desktop d = Desktop.getDesktop();
+                                d.browse(new URI(currentSong1.getLink()));
+                            }
+
+                        }
+                    }
+                    
+                    findSongAgain = InputReader.getString("\n" + "Would you like to try play a song again?" + "\n--> ");
+                }
+                while(yesOptions.contains(findSongAgain));
+            }
             
             // Option to exit program
-            else if (userInput0  == 5)
+            else if (userInput0  == 6)
             {
                 System.out.println("Closing program...");
                 System.exit(0);
@@ -225,8 +260,5 @@ public class App
             "\n--> ");
         }
         while(yesOptions.contains(_continue));
-
-        Desktop song1 = Desktop.getDesktop();
-        song1.browse(new URI("https://www.youtube.com/watch?v=lw3Or6eqIpI"));
     }
 }
