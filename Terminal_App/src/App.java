@@ -23,7 +23,7 @@ public class App
         Song s4 = new Song("Lazarus", "Dave", 2356707, "https://www.youtube.com/watch?v=p8P-sLoRgM0");
         songList.add(s4);
 
-        Song s5 = new Song("Out Tha Mud", "Roddy Ricch", 26687093, "https://www.youtube.com/watch?v=Y3JWPcDgZng");
+        Song s5 = new Song("Out The Mud", "Roddy Ricch", 26687093, "https://www.youtube.com/watch?v=Y3JWPcDgZng");
         songList.add(s5);
 
         Song s6 = new Song("family ties", "Baby Keem, Kendrick Lamar", 72728511, "https://www.youtube.com/watch?v=v6HBZC9pZHQ");
@@ -89,7 +89,7 @@ public class App
         noOptions.add("nop");
 
         //User input for making decision in different areas of the code
-        //Instantiated as hierachy doesn't allow the variables to be instantiated later
+        //Instantiated here as hierachy doesn't allow the variables to be instantiated later
         int userInput0;
         String _continue;
         String addSongAgain;
@@ -120,13 +120,17 @@ public class App
             {
                 System.out.println("");
 
+                //Formatting method allows data to displayed in the form of a table
                 System.out.printf("----------------------------------------------------------------------------------------------------------------------------------%n");
                 System.out.printf("|                                                                Songs                                                           |%n");
                 System.out.printf("----------------------------------------------------------------------------------------------------------------------------------%n");
                 System.out.printf("| %-50s | %-50s | %-20s |%n", "Title", "Artist", "Play Count");
                 System.out.printf("----------------------------------------------------------------------------------------------------------------------------------%n");
+
+                //Printing all songs with printf() for table format
                 for (Song currentSong: songList)
                 {
+                    //using print method from Song class
                     currentSong.printTable();
                 }
                 System.out.printf("----------------------------------------------------------------------------------------------------------------------------------%n");
@@ -135,6 +139,7 @@ public class App
             //Option to add songs
             else if (userInput0 == 2)
             {
+                //Do while loop allows section of program to run without having to start from the beginning
                 do
                 {
                     System.out.println("");
@@ -146,10 +151,12 @@ public class App
                     Song userAddedSong = new Song(userTitle, userArtist, userPlayCount, userLink);
                     songList.add(userAddedSong);
 
+                    //Confirmation of song added to list
                     if (songList.contains(userAddedSong))
                     {
                         System.out.println("\n" + "Your song has been added." + "\n");
                     }
+                    //unlikely event which a song cannot be added to song list
                     else
                     {
                         System.out.println("\nSomething went wrong.");
@@ -164,14 +171,17 @@ public class App
             //Option to remove song
             else if (userInput0 == 3)
             {
+                //Do while loop allows section of program to run without having to start from the beginning
                 do
                 {
                     System.out.println("\n" + "TYPE AS SHOWN IN SONG LIST!!" + "\n");
                     System.out.println("IF SONG DOES NOT EXIST IN THE LIST, IT WILL NOT BE REMOVED!!" + "\n");
 
+                    //Variables used to find song
                     String removeTitle = InputReader.getString("Title: ").toLowerCase();
                     String removeArtist = InputReader.getString("Artist: ").toLowerCase();
 
+                    //For every Song object, code checks if song attributes match. If so, the song is removed from the list
                     for (Song currentSong1: songList)
                     {
                         if ((removeTitle.equals(currentSong1.getTitle().toLowerCase())) && (removeArtist.equals(currentSong1.getArtist().toLowerCase())))
@@ -209,6 +219,7 @@ public class App
 
                 for (Song songMin: songList)
                 {
+                    //Under condition, user selected minimum play count, only songs where minimum applies will be printed in table
                     if (minimumCount <= songMin.getPlayCount())
                     {
                         songMin.printTable();
@@ -221,23 +232,32 @@ public class App
             //Finding song on youtube.com
             else if (userInput0 == 5)
             {
+                //Do while loop allows section of program to run without having to start from the beginning
                 do
                 {
+                    //Clarify to user to be carefull in entering details
                     System.out.println("\n" + "TYPE AS SHOWN IN SONG LIST!!" + "\n");
                     System.out.println("IF SONG DOES NOT EXIST IN THE LIST, IT WILL NOT BE FOUND, AND LINK WILL NOT BE OPENED!!" + "\n");
 
+                    //Variables used to find song
                     String findTitle = InputReader.getString("Title: ").toLowerCase();
                     String findArtist = InputReader.getString("Artist: ").toLowerCase();
 
+                    //Searching through all songs
                     for (Song currentSong1: songList)
                     {
+                        //Title and artist both have to match for a particular song object
                         if ((findTitle.equals(currentSong1.getTitle().toLowerCase())) && (findArtist.equals(currentSong1.getArtist().toLowerCase())))
                         {
                             String findSong = InputReader.getString("You want to play " + currentSong1.getTitle() + " by " + currentSong1.getArtist() + "?" + "\n--> ");
 
+                            //URL will only be used if user answers one of the 'yes' options
                             if (yesOptions.contains(findSong))
                             {
+                                //Desktop object 'd'
                                 Desktop d = Desktop.getDesktop();
+
+                                //Use link associated with the object to open in browser 
                                 d.browse(new URI(currentSong1.getLink()));
                             }
 
