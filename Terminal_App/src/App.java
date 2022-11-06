@@ -10,7 +10,7 @@ public class App
         //Arraylist of songs
         ArrayList<Song> songList = new ArrayList<>();
 
-        //Each song and their attributes
+        //Each song originally in the list and their attributes
         Song s1 = new Song("Where Ya At", "Future (ft. Drake)", 312938482, "https://www.youtube.com/watch?v=lw3Or6eqIpI");
         songList.add(s1);
 
@@ -88,7 +88,8 @@ public class App
         noOptions.add("nope");
         noOptions.add("nop");
 
-        //User input for making decision
+        //User input for making decision in different areas of the code
+        //Instantiated as hierachy doesn't allow the variables to be instantiated later
         int userInput0;
         String _continue;
         String addSongAgain;
