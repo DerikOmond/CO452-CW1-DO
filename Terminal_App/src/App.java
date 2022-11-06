@@ -106,7 +106,7 @@ public class App
 
 
                 userInput0 = InputReader.getInt("\n1. Print table of songs." +
-                "\n2. Add songs." +
+                "\n2. Add song." +
                 "\n3. Remove song." +
                 "\n4. Display songs according to minimum view count." +
                 "\n5. Play song on youtube.com." +
@@ -252,7 +252,7 @@ public class App
             // Option to exit program
             else if (userInput0  == 6)
             {
-                System.out.println("Closing program...");
+                System.out.printf("\n" + "Closing program..." + "\n");
                 System.exit(0);
             }
 
