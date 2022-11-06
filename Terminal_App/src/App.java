@@ -1,5 +1,7 @@
 //Imports
 import java.util.ArrayList;
+import java.awt.Desktop;
+import java.net.URI;
 
 public class App 
 {
@@ -9,7 +11,7 @@ public class App
         ArrayList<Song> songList = new ArrayList<>();
 
         //Each song and their attributes
-        Song s1 = new Song("Where Ya At", "Future", 312938482);
+        Song s1 = new Song("Where Ya At", "Future (ft. Drake)", 312938482);
         songList.add(s1);
 
         Song s2 = new Song("Don't Play That", "King Von & 21 Savage", 13672589);
@@ -98,7 +100,7 @@ public class App
             do
             {
                 System.out.printf("\n" + "MAIN MENU" + "\n");
-                
+
 
                 userInput0 = InputReader.getInt("\n1. Print table of songs" +
                 "\n2. Add songs" +
@@ -223,5 +225,8 @@ public class App
             "\n--> ");
         }
         while(yesOptions.contains(_continue));
+
+        Desktop song1 = Desktop.getDesktop();
+        song1.browse(new URI("https://www.youtube.com/watch?v=lw3Or6eqIpI"));
     }
 }
