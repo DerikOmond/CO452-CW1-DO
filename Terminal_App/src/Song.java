@@ -1,3 +1,4 @@
+//Song method used in main method for object attributes
 public class Song
 {
     //Attributes
