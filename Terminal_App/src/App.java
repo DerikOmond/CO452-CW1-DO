@@ -27,7 +27,7 @@ public class App
         Song s6 = new Song("family ties", "Baby Keem, Kendrick Lamar", 72728511);
         songList.add(s6);
 
-        Song s7 = new Song(" MIDDLE CHILD", "J. Cole", 242380998 );
+        Song s7 = new Song("MIDDLE CHILD", "J. Cole", 242380998 );
         songList.add(s7);
 
         Song s8 = new Song("Fair Trade", "Drake ft. Travis Scott", 67927967);
@@ -66,6 +66,7 @@ public class App
         options0.add(2);
         options0.add(3);
         options0.add(4);
+        options0.add(5);
 
         // Arraylist of 'yes' options possible
         ArrayList<String> yesOptions = new ArrayList<>();
@@ -186,7 +187,9 @@ public class App
             //Option to to list songs above certain play count
             else if (userInput0  == 4)
             {
+                System.out.println("");
                 int minimumCount = InputReader.getInt("Minimum view count: ");
+                System.out.println("");
 
                 System.out.printf("----------------------------------------------------------------------------------------------------------------------------------%n");
                 System.out.printf("|                                                                Songs                                                           |%n");
@@ -211,7 +214,7 @@ public class App
                 System.out.println("Closing program...");
                 System.exit(0);
             }
-            
+
             // Continue/Restart program prompt
             _continue = InputReader.getString("\n" + "Continue? " +
             "\n--> ");
