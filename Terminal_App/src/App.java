@@ -97,6 +97,9 @@ public class App
             // Prompting user made decision through key input
             do
             {
+                System.out.printf("\n" + "MAIN MENU" + "\n");
+                
+
                 userInput0 = InputReader.getInt("\n1. Print table of songs" +
                 "\n2. Add songs" +
                 "\n3. Remove song." +
